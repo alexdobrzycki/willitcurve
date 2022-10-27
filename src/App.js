@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   const [searchText, setSearchText] = useState("");
   const [approxAverage, setapproxAverage] = useState("");
-  const [classData, setClassData] = useState({});
+  const [classData, setClassData] = useState("");
 
   function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
@@ -21,7 +21,7 @@ function App() {
       var average = parseFloat(approxAverage);
       var gpaConverted;
       if (!isNumber(gpa) || !(isNumber(average)) || isNaN(average)) {
-        setClassData("Invalid input, please use the following format: \"MATH140\" \"80\"")
+        setClassData("Invalid input, please use the following format: \"MATH140\" \"80\"");
       } else {
         if (gpa <= 4 && gpa > 3.7) {
           gpaConverted = gpa * 25;
@@ -46,11 +46,11 @@ function App() {
         if (gpaConverted - average <= 0) {
           setClassData("There will likely be no curve :(");
         } else {
-          setClassData("The curve will approximately be "+ (gpaConverted - average).toFixed(2) + " points");
+          setClassData("The curve will approximately be: " + (gpaConverted - average).toFixed(2) + " points");
         }
       }
     }).catch(function (error) {
-      setClassData("Invalid input, please use the following format: \"MATH140\" \"80\"")
+      setClassData("Invalid input, please use the following format: \"MATH140\" \"80\"");
     });
   }
 
@@ -59,17 +59,19 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>Will it Curve? UMD</h1>
-        <input type="text" placeholder='Enter class, ex: MATH140' onChange={e => setSearchText(e.target.value)}></input>
+        <input type="text" id="textboxid" placeholder='Enter class, eg: MATH140' onChange={e => setSearchText(e.target.value)}></input>
         <br></br>
-        <input type="text" placeholder='Enter approximate average'onChange={e => setapproxAverage(e.target.value)}></input>
+        <input type="text" id="textboxid" placeholder='Enter approximate average, eg: 85.55'onChange={e => setapproxAverage(e.target.value)}></input>
         <br></br>
-        <button onClick={e => searchForClass(e)}>Search for a class</button>
+        <br></br>
+        <button class="button-24" onClick={e => searchForClass(e)}>Search for a class</button>
+        <br></br>
+        <br></br>
       </div>
-      {JSON.stringify(classData) !== '{}' ? 
-      <><p>{classData}</p></> 
+      {JSON.stringify(classData) !== '""' ? 
+      <><p><b>{classData}</b></p></>
       :
-      <><p>Enter Class Name (eg: MATH140) and Approximate Average (eg: 85.55)</p></> 
+      <><p>Enter Class Name and Approximate Average</p></> 
     }
     </div>
   );
