@@ -20,9 +20,10 @@ function App() {
       var gpa = parseFloat(dataGPA);
       var average = parseFloat(approxAverage);
       var gpaConverted;
-      if (!isNumber(gpa) || !(isNumber(average))) {
-        setClassData("Invalid input, please use the following format: \"MATH140\"");
-      } else if (gpa <= 4 && gpa > 3.7) {
+      if (!isNumber(gpa) || !(isNumber(average)) || isNaN(average)) {
+        setClassData("Invalid input, please use the following format: \"MATH140\" \"80\"")
+      } else {
+        if (gpa <= 4 && gpa > 3.7) {
           gpaConverted = gpa * 25;
         } else if (gpa <= 3.7 && gpa > 3.3) {
           gpaConverted = gpa * 26;
@@ -47,8 +48,9 @@ function App() {
         } else {
           setClassData("The curve will approximately be "+ (gpaConverted - average).toFixed(2) + " points");
         }
+      }
     }).catch(function (error) {
-      setClassData("Invalid input, please use the following format: \"MATH140\"")
+      setClassData("Invalid input, please use the following format: \"MATH140\" \"80\"")
     });
   }
 
@@ -67,7 +69,7 @@ function App() {
       {JSON.stringify(classData) !== '{}' ? 
       <><p>{classData}</p></> 
       :
-      <><p>Enter Class Name:</p></> 
+      <><p>Enter Class Name (eg: MATH140) and Approximate Average (eg: 85.55)</p></> 
     }
     </div>
   );
