@@ -2,4 +2,4 @@ Will it Curve? is a web application that estimates the curve a professor could g
 
 It utilizes PlanetTerp’s API to retrieve grade data based on the user’s input.
 
-check out the live demo here: curve.alexdob.com
+Check out the live demo [here](https://www.curve.alexdob.com/)
