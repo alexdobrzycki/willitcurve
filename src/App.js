@@ -21,7 +21,7 @@ function App() {
       var average = parseFloat(approxAverage);
       var gpaConverted;
       if (!isNumber(gpa) || !(isNumber(average)) || isNaN(average)) {
-        setClassData("Invalid input, please use the following format: \"MATH140\" \"80\"");
+        setClassData("Invalid input, please use the proper format: eg: \"MATH140\" & \"80\"");
       } else {
         if (gpa <= 4 && gpa > 3.7) {
           gpaConverted = gpa * 25;
@@ -50,28 +50,29 @@ function App() {
         }
       }
     }).catch(function (error) {
-      setClassData("Invalid input, please use the following format: \"MATH140\" \"80\"");
+      setClassData("Invalid input, please use the proper format, eg: \"MATH140\" & \"80\"");
     });
   }
 
   console.log(classData);
   
   return (
-    <div className="App">
+    <div id="center" className="App">
+    <img src="marylandlogo.png" alt=" " width="125" height="50"></img>
+      <h1>Will it Curve? University of Maryland</h1>
       <div className="container">
-        <input type="text" id="textboxid" placeholder='Enter class, eg: MATH140' onChange={e => setSearchText(e.target.value)}></input>
+        <input type="text" id="textboxid" placeholder='Class name, eg: MATH140' onChange={e => setSearchText(e.target.value)}></input>
         <br></br>
-        <input type="text" id="textboxid" placeholder='Enter approximate average, eg: 85.55'onChange={e => setapproxAverage(e.target.value)}></input>
-        <br></br>
-        <br></br>
-        <button class="button-24" onClick={e => searchForClass(e)}>Search for a class</button>
+        <input type="text" id="textboxid" placeholder='Approximate class average, eg: 85.55'onChange={e => setapproxAverage(e.target.value)}></input>
         <br></br>
         <br></br>
+        <button className="button-24" onClick={e => searchForClass(e)}>Search for a class</button>
+        <br></br><br></br>
       </div>
       {JSON.stringify(classData) !== '""' ? 
       <><p><b>{classData}</b></p></>
       :
-      <><p>Enter Class Name and Approximate Average</p></> 
+      <><p>Enter the Class Name and the Approximate Class Average</p></> 
     }
     </div>
   );
