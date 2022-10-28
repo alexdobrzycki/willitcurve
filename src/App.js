@@ -21,7 +21,7 @@ function App() {
       var average = parseFloat(approxAverage);
       var gpaConverted;
       if (!isNumber(gpa) || !(isNumber(average)) || isNaN(average)) {
-        setClassData("Invalid input, please use the proper format: eg: \"MATH140\" & \"80\"");
+        setClassData("Invalid input, please use the proper format: eg: \"MATH140\" and \"80\"");
       } else {
         if (gpa <= 4 && gpa > 3.7) {
           gpaConverted = gpa * 25;
@@ -44,13 +44,13 @@ function App() {
         } 
 
         if (gpaConverted - average <= 0) {
-          setClassData("There will likely be no curve :(");
+          setClassData("There will likely be no curve (possible decrease in grade)");
         } else {
-          setClassData("The curve will approximately be: " + (gpaConverted - average).toFixed(2) + " points");
+          setClassData("The curve will be approximately: " + (gpaConverted - average).toFixed(2) + " points");
         }
       }
     }).catch(function (error) {
-      setClassData("Invalid input, please use the proper format, eg: \"MATH140\" & \"80\"");
+      setClassData("Invalid input, please use the proper format, eg: \"MATH140\" and \"80\"");
     });
   }
 
@@ -61,7 +61,7 @@ function App() {
     <img src="marylandlogo.png" alt=" " width="125" height="50"></img>
       <h1>Will it Curve? University of Maryland</h1>
       <div className="container">
-        <input type="text" id="textboxid" placeholder='Class name, eg: MATH140' onChange={e => setSearchText(e.target.value)}></input>
+        <input type="text" id="textboxid" placeholder='Course name, eg: MATH140' onChange={e => setSearchText(e.target.value)}></input>
         <br></br>
         <input type="text" id="textboxid" placeholder='Approximate class average, eg: 85.55'onChange={e => setapproxAverage(e.target.value)}></input>
         <br></br>
@@ -72,7 +72,12 @@ function App() {
       {JSON.stringify(classData) !== '""' ? 
       <><p><b>{classData}</b></p></>
       :
-      <><p>Enter the Class Name and the Approximate Class Average</p></> 
+      <><p>Enter the Course Name and the Approximate Class Average</p>
+      <p id="small">Example: If you're taking CMSC216 and you believe your class' average
+      is a 65, enter "CMSC216" and "65" into the input boxes.</p>
+      <p id="small">The output is an approximation of a curve that the professor could grant
+       based on real UMD historical  grade data, calculated by utilizing <a href="https://planetterp.com/api/"
+       target="_blank" rel="noreferrer">PlanetTerp's API.</a></p></> 
     }
     </div>
   );

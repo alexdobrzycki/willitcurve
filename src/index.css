@@ -14,6 +14,12 @@ p {
   font-size: 22px;
 }
 
+#small 
+{
+  font-size: 15px;
+  max-width: fit-content;
+}
+
 #center 
 {
   margin: 0;
