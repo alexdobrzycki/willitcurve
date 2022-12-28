@@ -42,7 +42,6 @@ function App() {
         } else if (gpa < 1.3 && gpa >= 1.0) {
           gpaConverted = 60 + (gpa - 1) * (7/.3);
         } 
-
         if (gpaConverted - average <= 0) {
           setClassData("There will likely be no curve (possible decrease in grade)");
         } else {
