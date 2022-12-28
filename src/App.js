@@ -23,24 +23,24 @@ function App() {
       if (!isNumber(gpa) || !(isNumber(average)) || isNaN(average)) {
         setClassData("Invalid input, please use the proper format: eg: \"MATH140\" and \"80\"");
       } else {
-        if (gpa <= 4 && gpa > 3.7) {
-          gpaConverted = gpa * 25;
-        } else if (gpa <= 3.7 && gpa > 3.3) {
-          gpaConverted = gpa * 26;
-        } else if (gpa <= 3.3 && gpa > 3.0) {
-          gpaConverted = gpa * 27.8;
-        } else if (gpa <= 3.0 && gpa > 2.7) {
-          gpaConverted = gpa * 29.7;
-        } else if (gpa <= 2.7 && gpa > 2.3) {
-          gpaConverted = gpa * 32.54;
-        } else if (gpa <= 2.3 && gpa > 2.0) {
-          gpaConverted = gpa * 36.17;
-        } else if (gpa <= 2.0 && gpa > 1.7) {
-          gpaConverted = gpa * 40.17;
-        } else if (gpa <= 1.7 && gpa > 1.3) {
-          gpaConverted = gpa * 47.71;
-        } else if (gpa <= 1.3 && gpa >= 1.0) {
-          gpaConverted = gpa * 59.54;
+        if (gpa <= 4 && gpa >= 3.7) {
+          gpaConverted = 90 + (gpa - 3.7) * 10;
+        } else if (gpa < 3.7 && gpa >= 3.3) {
+          gpaConverted = 87 + (gpa - 3.3) * 7.5;
+        } else if (gpa < 3.3 && gpa >= 3.0) {
+          gpaConverted = 83 + (gpa - 3.0) * (4/.3);
+        } else if (gpa < 3.0 && gpa >= 2.7) {
+          gpaConverted = 80 + (gpa - 2.7) * 10;
+        } else if (gpa < 2.7 && gpa >= 2.3) {
+          gpaConverted = 77 + (gpa - 2.3) * 7.5;
+        } else if (gpa < 2.3 && gpa >= 2.0) {
+          gpaConverted = 73 + (gpa - 2.0) * (4/.3);
+        } else if (gpa < 2.0 && gpa >= 1.7) { 
+          gpaConverted = 70 + (gpa - 1.7) * 10;
+        } else if (gpa < 1.7 && gpa >= 1.3) {
+          gpaConverted = 67 + (gpa - 1.3) * 7.5;
+        } else if (gpa < 1.3 && gpa >= 1.0) {
+          gpaConverted = 60 + (gpa - 1) * (7/.3);
         } 
 
         if (gpaConverted - average <= 0) {
