@@ -72,9 +72,9 @@ function App() {
       <><p><b>{classData}</b></p></>
       :
       <><p>Enter the Course Name and the Approximate Class Average</p>
-      <p id="small">Example: If you're taking CMSC216 and you believe your class' average
-      is a 65, enter "CMSC216" and "65" into the input boxes.</p>
-      <p id="small">The output is an approximation of a curve that the professor could grant
+      <p class="middletext"> Example: If you're taking CMSC216 and you believe your class' average
+      is a 65, enter "CMSC216" and "65" into their respective input boxes.</p>
+      <p class="middletext">The output is an approximation of a curve that the professor could grant
        based on real UMD historical  grade data, calculated by utilizing <a href="https://planetterp.com/api/"
        target="_blank" rel="noreferrer">PlanetTerp's API.</a></p></> 
     }
