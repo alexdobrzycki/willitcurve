@@ -62,7 +62,7 @@ function App() {
       <div className="container">
         <input type="text" id="textboxid" placeholder='Course name, eg: MATH140' onChange={e => setSearchText(e.target.value)}></input>
         <br></br>
-        <input type="text" id="textboxid" placeholder='Approximate class average, eg: 85.55'onChange={e => setapproxAverage(e.target.value)}></input>
+        <input type="text" id="textboxid" placeholder='Approximate class average, eg: 65.32'onChange={e => setapproxAverage(e.target.value)}></input>
         <br></br>
         <br></br>
         <button className="button-24" onClick={e => searchForClass(e)}>Search for a class</button>
