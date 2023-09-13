@@ -66,7 +66,7 @@ function App() {
         <br></br>
         <br></br>
         <button className="button-24" onClick={e => searchForClass(e)}>Search for a class</button>
-        <br></br><br></br>
+        <br></br>
       </div>
       {JSON.stringify(classData) !== '""' ? 
       <><p><b>{classData}</b></p></>
