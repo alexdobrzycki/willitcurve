@@ -1,6 +1,6 @@
 **Will it Curve?** 
 
-Oftentimes I see people asking whether or not a professor is going to curve a class.
+Oftentimes I hear people asking whether or not a professor is going to curve a class.
 
 Will it Curve? is a web application I decided to make for fun that answers this question, by estimating the curve a professor could give.
 
